@@ -4,7 +4,6 @@ import {Text} from './src/components/Text/Text';
 import {ThemeProvider} from '@shopify/restyle';
 import {theme} from './src/theme/theme';
 import {Button} from './src/components/Button/Button';
-import {Box} from './src/components/Box/Box';
 
 export default function App(): React.JSX.Element {
   return (
@@ -15,14 +14,13 @@ export default function App(): React.JSX.Element {
           height: '100%',
           paddingHorizontal: 16,
         }}>
-        <Text preset="headingMedium">Nubble App</Text>
+        <Text preset="headingMedium" color="backgroundContrast">
+          Nubble App
+        </Text>
 
-        <Box marginVertical="s10">
-          <Button title="Entrar" />
-        </Box>
-        <Box>
-          <Button loading title="Loading" />
-        </Box>
+        <Button title="Entrar" marginVertical="s20" />
+
+        <Button title="Loading" />
       </SafeAreaView>
     </ThemeProvider>
   );
