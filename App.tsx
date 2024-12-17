@@ -18,9 +18,12 @@ export default function App(): React.JSX.Element {
           Nubble App
         </Text>
 
-        <Button title="Entrar" marginVertical="s20" />
-
-        <Button title="Loading" />
+        <Button title="Primary" mt="s20" mb="s20" />
+        <Button preset="outline" title="Outline" mb="s20" />
+        <Button title="Loading" loading mb="s20" />
+        <Button preset="outline" loading title="Outline" mb="s20" />
+        <Button title="Disabled" disabled mb="s20" />
+        <Button preset="outline" disabled loading title="Disabled" />
       </SafeAreaView>
     </ThemeProvider>
   );
