@@ -15,9 +15,9 @@ export default function App(): React.JSX.Element {
           height: '100%',
           paddingHorizontal: 16,
         }}>
-        <Text preset="headingMedium">Hello, word!</Text>
+        <Text preset="headingMedium">Nubble App</Text>
 
-        <Box mb="s10">
+        <Box marginVertical="s10">
           <Button title="Entrar" />
         </Box>
         <Box>

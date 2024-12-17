@@ -1,9 +1,7 @@
 import React from 'react';
-import {ActivityIndicator, TouchableOpacity} from 'react-native';
+import {ActivityIndicator} from 'react-native';
 import {Text} from '../Text/Text';
-import {useTheme} from '@shopify/restyle';
-import {Theme} from '../../theme/theme';
-import {Box} from '../Box/Box';
+import {TouchableOpacityBox} from '../Box/Box';
 
 interface ButtonProps {
   title: string;
@@ -12,12 +10,13 @@ interface ButtonProps {
 
 export function Button({title, loading}: ButtonProps) {
   return (
-    <Box
+    <TouchableOpacityBox
       backgroundColor="buttonPrimary"
-      paddingHorizontal={'s20'}
       height={50}
+      paddingHorizontal="s20"
       alignItems="center"
-      justifyContent="center">
+      justifyContent="center"
+      borderRadius="s16">
       {loading ? (
         <ActivityIndicator />
       ) : (
@@ -25,6 +24,6 @@ export function Button({title, loading}: ButtonProps) {
           {title}
         </Text>
       )}
-    </Box>
+    </TouchableOpacityBox>
   );
 }
