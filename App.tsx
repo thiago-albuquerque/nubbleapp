@@ -3,8 +3,9 @@ import {SafeAreaView} from 'react-native';
 import {Text} from './src/components/Text/Text';
 import {ThemeProvider} from '@shopify/restyle';
 import {theme} from './src/theme/theme';
+import {Button} from './src/components/Button/Button';
+import {TextInput} from './src/components/TextInput/TextInput';
 import {Icon} from './src/components/Icons/Icon';
-import {Box} from './src/components/Box/Box';
 
 export default function App(): React.JSX.Element {
   return (
@@ -15,42 +16,33 @@ export default function App(): React.JSX.Element {
           height: '100%',
           paddingHorizontal: 16,
         }}>
-        <Text preset="headingMedium" color="backgroundContrast" mb="s10">
-          Nubble App
+        <Text preset="headingLarge" mt="s40" mb="s8">
+          Olá
         </Text>
-        <Box flexDirection="row">
-          <Icon name="arrowLeft" />
-          <Icon name="arrowRight" />
-          <Icon name="bell" />
-          <Icon name="bellOn" />
-          <Icon name="bookmark" />
-          <Icon name="bookmarkFill" />
-          <Icon name="camera" />
-          <Icon name="chat" />
-          <Icon name="chatOn" />
-          <Icon name="check" />
-          <Icon name="chevronRight" />
-          <Icon name="comment" />
-          <Icon name="eyeOff" />
-          <Icon name="eyeOn" />
-        </Box>
-        <Box flexDirection="row">
-          <Icon name="flashOff" />
-          <Icon name="flashOn" />
-          <Icon name="heart" />
-          <Icon name="heartFill" />
-          <Icon name="home" />
-          <Icon name="homeFill" />
-          <Icon name="message" />
-          <Icon name="more" />
-          <Icon name="newPost" />
-          <Icon name="profile" />
-          <Icon name="profileFill" />
-          <Icon name="search" />
-          <Icon name="send" />
-          <Icon name="settings" />
-          <Icon name="trash" />
-        </Box>
+        <Text preset="paragraphLarge" mb="s40">
+          Digite seu e-mail e senha para entrar
+        </Text>
+
+        <TextInput
+          label="E-mail"
+          placeholder="digite seu e-mail"
+          boxProps={{mb: 's20'}}
+        />
+
+        <TextInput
+          label="Senha"
+          placeholder="digite sua senha"
+          RightComponent={<Icon name="eyeOn" color="gray2" />}
+          errorMessage="Mensagem de erro"
+          boxProps={{mb: 's10'}}
+        />
+
+        <Text preset="paragraphSmall" bold color="primary" mb="s48">
+          Esqueci minha senha
+        </Text>
+
+        <Button title="Entrar" mb="s12" />
+        <Button title="Criar uma conta" preset="outline" />
       </SafeAreaView>
     </ThemeProvider>
   );
