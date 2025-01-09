@@ -8,6 +8,7 @@ import {
   ViewContainer,
 } from './component/ScrollViewContainer';
 import {useAppTheme} from '../../hooks/useAppTheme';
+import {useAppSafeArea} from '../../hooks/useAppSafeArea';
 
 interface ScreenProps {
   children: React.ReactNode;
@@ -21,6 +22,7 @@ export function Screen({
   scrollable = false,
 }: ScreenProps) {
   const Container = scrollable ? ScrollViewContainer : ViewContainer;
+  const {top, bottom} = useAppSafeArea();
   const {colors} = useAppTheme();
 
   return (
