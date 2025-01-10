@@ -11,10 +11,19 @@ type ScreenProps = NativeStackScreenProps<RootStackParamList, 'SignUpScreen'>;
 
 export function SignUpScreen({navigation}: ScreenProps) {
   function submitForm() {
-    navigation.navigate('SuccessScreen', {
-      title: 'Sua conta foi criada com sucesso!',
-      description: 'Agora é só acessar nossa plataforma',
-      icon: {name: 'checkRound', color: 'greenSuccess', size: 48},
+    navigation.reset({
+      index: 1,
+      routes: [
+        {name: 'LoginScreen'},
+        {
+          name: 'SuccessScreen',
+          params: {
+            title: 'Sua conta foi criada com sucesso!',
+            description: 'Agora é só acessar nossa plataforma',
+            icon: {name: 'checkRound', color: 'greenSuccess', size: 48},
+          },
+        },
+      ],
     });
   }
 
