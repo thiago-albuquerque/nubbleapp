@@ -34,6 +34,7 @@ export function LoginScreen({navigation}: ScreenProps) {
       <TextInput
         label="E-mail"
         placeholder="digite seu e-mail"
+        autoCapitalize="none"
         boxProps={{mb: 's20'}}
       />
 
