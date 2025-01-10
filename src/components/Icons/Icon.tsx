@@ -8,13 +8,16 @@ import {BellOnIcon} from '../../assets/icons/BellOnIcon';
 import {BookmarkIcon} from '../../assets/icons/BookmarkIcon';
 import {BookmarkFillIcon} from '../../assets/icons/BookmarkFillIcon';
 import {CameraIcon} from '../../assets/icons/CameraIcon';
+import {CameraClickIcon} from '../../assets/icons/CameraClickIcon';
 import {ChatIcon} from '../../assets/icons/ChatIcon';
 import {ChatOnIcon} from '../../assets/icons/ChatOnIcon';
 import {CheckIcon} from '../../assets/icons/CheckIcon';
+import {CheckRoundIcon} from '../../assets/icons/CheckRoundIcon';
 import {ChevronRightIcon} from '../../assets/icons/ChevronRightIcon';
 import {CommentIcon} from '../../assets/icons/CommentIcon';
 import {EyeOnIcon} from '../../assets/icons/EyeOnIcon';
 import {EyeOffIcon} from '../../assets/icons/EyeOffIcon';
+import {ErrorRoundIcon} from '../../assets/icons/ErrorRoundIcon';
 import {FlashOffIcon} from '../../assets/icons/FlashOffIcon';
 import {FlashOnIcon} from '../../assets/icons/FlashOnIcon';
 import {HeartIcon} from '../../assets/icons/HeartIcon';
@@ -22,6 +25,8 @@ import {HeartFillIcon} from '../../assets/icons/HeartFillIcon';
 import {HomeIcon} from '../../assets/icons/HomeIcon';
 import {HomeFillIcon} from '../../assets/icons/HomeFillIcon';
 import {MessageIcon} from '../../assets/icons/MessageIcon';
+import {MessageRoundIcon} from '../../assets/icons/MessageRoundIcon';
+import {MessageRoundLightIcon} from '../../assets/icons/MessageRoundLightIcon';
 import {MoreIcon} from '../../assets/icons/MoreIcon';
 import {NewPostIcon} from '../../assets/icons/NewPostIcon';
 import {ProfileIcon} from '../../assets/icons/ProfileIcon';
@@ -37,7 +42,7 @@ export interface IconBase {
   color?: string;
 }
 
-interface Props {
+export interface IconProps {
   name: IconName;
   color?: ThemeColors;
   size?: number;
@@ -49,7 +54,7 @@ export function Icon({
   size = 20,
   onPress,
   color = 'backgroundContrast',
-}: Props) {
+}: IconProps) {
   const {colors} = useAppTheme();
   const SVGIcon = iconRegistry[name];
 
@@ -72,11 +77,14 @@ const iconRegistry = {
   bookmark: BookmarkIcon,
   bookmarkFill: BookmarkFillIcon,
   camera: CameraIcon,
+  cameraClick: CameraClickIcon,
   chat: ChatIcon,
   chatOn: ChatOnIcon,
   check: CheckIcon,
+  checkRound: CheckRoundIcon,
   chevronRight: ChevronRightIcon,
   comment: CommentIcon,
+  errorRound: ErrorRoundIcon,
   eyeOn: EyeOnIcon,
   eyeOff: EyeOffIcon,
   flashOff: FlashOffIcon,
@@ -86,6 +94,8 @@ const iconRegistry = {
   home: HomeIcon,
   homeFill: HomeFillIcon,
   message: MessageIcon,
+  messageRound: MessageRoundIcon,
+  messageRoundLight: MessageRoundLightIcon,
   more: MoreIcon,
   newPost: NewPostIcon,
   profile: ProfileIcon,
