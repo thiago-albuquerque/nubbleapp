@@ -6,11 +6,30 @@ import {Screen} from '../../../components/Screen/Screen';
 import {PasswordInput} from '../../../components/PasswordInput/PasswordInput';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../Routes';
+import {FormTextInput} from '../../../components/FormTextInput/FormTextInput';
+import {useForm} from 'react-hook-form';
+
+type SignUpFormType = {
+  username: string;
+  fullname: string;
+  email: string;
+  password: string;
+};
 
 type ScreenProps = NativeStackScreenProps<RootStackParamList, 'SignUpScreen'>;
 
 export function SignUpScreen({navigation}: ScreenProps) {
-  function submitForm() {
+  const {control, formState, handleSubmit} = useForm<SignUpFormType>({
+    defaultValues: {
+      username: '',
+      fullname: '',
+      email: '',
+      password: '',
+    },
+    mode: 'onChange',
+  });
+
+  function submitForm(formValues: SignUpFormType) {
     navigation.reset({
       index: 1,
       routes: [
@@ -32,6 +51,16 @@ export function SignUpScreen({navigation}: ScreenProps) {
       <Text preset="headingLarge" mt="s24" mb="s40">
         Criar uma conta
       </Text>
+
+      {/* <FormTextInput
+        // control={control}
+        name='username'
+        rules={{required: 'Username obrigatório'}}
+        label='Seu username'
+        placeholder='@'
+        boxProps={{mb: 's20'}} 
+
+      /> */}
 
       <TextInput label="Seu username" placeholder="@" boxProps={{mb: 's20'}} />
 
