@@ -1,25 +1,20 @@
 import React from 'react';
 import {Text} from '../../../components/Text/Text';
-import {TextInput} from '../../../components/TextInput/TextInput';
 import {Button} from '../../../components/Button/Button';
 import {Screen} from '../../../components/Screen/Screen';
-import {PasswordInput} from '../../../components/PasswordInput/PasswordInput';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../Routes';
 import {FormTextInput} from '../../../components/FormTextInput/FormTextInput';
 import {useForm} from 'react-hook-form';
-
-type SignUpFormType = {
-  username: string;
-  fullname: string;
-  email: string;
-  password: string;
-};
+import {FormPasswordInput} from '../../../components/FormPasswordInput/FormPasswordInput';
+import {signUpSchema, SignUpSchemaType} from './signUpSchema';
+import {zodResolver} from '@hookform/resolvers/zod';
 
 type ScreenProps = NativeStackScreenProps<RootStackParamList, 'SignUpScreen'>;
 
 export function SignUpScreen({navigation}: ScreenProps) {
-  const {control, formState, handleSubmit} = useForm<SignUpFormType>({
+  const {control, formState, handleSubmit} = useForm<SignUpSchemaType>({
+    resolver: zodResolver(signUpSchema),
     defaultValues: {
       username: '',
       fullname: '',
@@ -29,7 +24,8 @@ export function SignUpScreen({navigation}: ScreenProps) {
     mode: 'onChange',
   });
 
-  function submitForm(formValues: SignUpFormType) {
+  function submitForm(formValues: SignUpSchemaType) {
+    console.log(formValues);
     navigation.reset({
       index: 1,
       routes: [
@@ -52,31 +48,37 @@ export function SignUpScreen({navigation}: ScreenProps) {
         Criar uma conta
       </Text>
 
-      {/* <FormTextInput
-        // control={control}
-        name='username'
-        rules={{required: 'Username obrigatório'}}
-        label='Seu username'
-        placeholder='@'
-        boxProps={{mb: 's20'}} 
-
-      /> */}
-
-      <TextInput label="Seu username" placeholder="@" boxProps={{mb: 's20'}} />
-
-      <TextInput
-        label="Nome Completo"
-        placeholder="digite seu nome completo"
+      <FormTextInput
+        control={control}
+        name="username"
+        label="Seu username"
+        placeholder="@username"
+        autoCapitalize="none"
         boxProps={{mb: 's20'}}
       />
 
-      <TextInput
+      <FormTextInput
+        control={control}
+        name="fullname"
+        label="Nome completo"
+        placeholder="digite seu nome completo"
+        autoCapitalize="words"
+        boxProps={{mb: 's20'}}
+      />
+
+      <FormTextInput
+        control={control}
+        name="email"
         label="E-mail"
         placeholder="digite seu e-mail"
+        autoCapitalize="none"
+        keyboardType="email-address"
         boxProps={{mb: 's20'}}
       />
 
-      <PasswordInput
+      <FormPasswordInput
+        control={control}
+        name="password"
         label="Senha"
         placeholder="digite sua senha"
         boxProps={{mb: 's10'}}
@@ -86,7 +88,11 @@ export function SignUpScreen({navigation}: ScreenProps) {
         Esqueci minha senha
       </Text>
 
-      <Button title="Criar uma conta" onPress={submitForm} />
+      <Button
+        onPress={handleSubmit(submitForm)}
+        disabled={!formState.isValid}
+        title="Criar uma conta"
+      />
     </Screen>
   );
 }

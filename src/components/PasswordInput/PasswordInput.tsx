@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import {Icon} from '../Icons/Icon';
 import {TextInput, TextInputProps} from '../TextInput/TextInput';
 
-type PasswordInputProps = Omit<TextInputProps, 'RightComponent'>;
+export type PasswordInputProps = Omit<TextInputProps, 'RightComponent'>;
 
-export function PasswordInput(props: PasswordInputProps) {
+export function PasswordInput(rnPasswordInputProps: PasswordInputProps) {
   const [isSecureTextEntry, setIsSecureTextEntry] = useState(true);
 
   function toggleSecureEntry() {
@@ -14,7 +14,7 @@ export function PasswordInput(props: PasswordInputProps) {
   return (
     <TextInput
       secureTextEntry={isSecureTextEntry}
-      {...props}
+      {...rnPasswordInputProps}
       RightComponent={
         <Icon
           name={isSecureTextEntry ? 'eyeOn' : 'eyeOff'}
