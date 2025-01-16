@@ -1,5 +1,7 @@
 import React from 'react';
+
 import {Svg, Circle} from 'react-native-svg';
+
 import {IconBase} from '../../components/Icons/Icon';
 
 export function CameraClickIcon({size, color}: IconBase) {
