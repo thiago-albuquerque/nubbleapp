@@ -1,7 +1,6 @@
 import React from 'react';
 
 import {zodResolver} from '@hookform/resolvers/zod';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {useForm} from 'react-hook-form';
 
 import {
@@ -11,13 +10,11 @@ import {
   FormPasswordInput,
   Screen,
 } from '@components';
-import {RootStackParamList} from '@routes';
+import {AuthScreenProps} from '@routes';
 
 import {signUpSchema, SignUpSchemaType} from './signUpSchema';
 
-type ScreenProps = NativeStackScreenProps<RootStackParamList, 'SignUpScreen'>;
-
-export function SignUpScreen({navigation}: ScreenProps) {
+export function SignUpScreen({navigation}: AuthScreenProps<'SignUpScreen'>) {
   const {control, formState, handleSubmit} = useForm<SignUpSchemaType>({
     resolver: zodResolver(signUpSchema),
     defaultValues: {
@@ -86,12 +83,8 @@ export function SignUpScreen({navigation}: ScreenProps) {
         name="password"
         label="Senha"
         placeholder="digite sua senha"
-        boxProps={{mb: 's10'}}
+        boxProps={{mb: 's48'}}
       />
-
-      <Text preset="paragraphSmall" bold color="primary" mb="s48">
-        Esqueci minha senha
-      </Text>
 
       <Button
         onPress={handleSubmit(submitForm)}
