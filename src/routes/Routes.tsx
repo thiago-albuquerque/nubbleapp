@@ -5,7 +5,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {AppStack, AuthStack} from '@routes';
 
 export function Routes() {
-  const isAuthenticated = false;
+  const isAuthenticated = true;
   return (
     <NavigationContainer>
       {isAuthenticated ? <AppStack /> : <AuthStack />}
