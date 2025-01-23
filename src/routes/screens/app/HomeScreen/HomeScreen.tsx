@@ -14,10 +14,6 @@ export function HomeScreen({navigation}: AppTabScreenProps<'HomeScreen'>) {
         title="Settings"
         mb="s16"
       />
-      <Button
-        onPress={() => navigation.navigate('FavoriteScreen')}
-        title="Favorite"
-      />
     </Screen>
   );
 }

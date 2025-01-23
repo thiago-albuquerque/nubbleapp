@@ -1,8 +1,11 @@
 import React from 'react';
 
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {
+  BottomTabBarProps,
+  createBottomTabNavigator,
+} from '@react-navigation/bottom-tabs';
 
-import {HomeScreen} from '@routes';
+import {AppTabBar, HomeScreen} from '@routes';
 
 import {FavoriteScreen} from './screens/app/FavoriteScreen/FavoriteScreen';
 import {MyProfileScreen} from './screens/app/MyProfileScreen/MyProfileScreen';
@@ -18,11 +21,16 @@ export type AppBottomTabParamList = {
 const Tab = createBottomTabNavigator<AppBottomTabParamList>();
 
 export function AppTabNavigator() {
+  function renderTabBar(props: BottomTabBarProps) {
+    return <AppTabBar {...props} />;
+  }
+
   return (
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
       }}
+      tabBar={renderTabBar}
       initialRouteName="HomeScreen">
       <Tab.Screen name="HomeScreen" component={HomeScreen} />
       <Tab.Screen name="NewPostScreen" component={NewPostScreen} />
