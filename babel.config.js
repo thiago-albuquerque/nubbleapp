@@ -12,6 +12,7 @@ module.exports = {
           '@routes': './src/routes',
           '@screen': './src/Screen',
           '@theme': './src/theme',
+          '@domain': './src/domain',
         },
       },
     ],

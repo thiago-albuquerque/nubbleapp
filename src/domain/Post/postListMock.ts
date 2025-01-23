@@ -1,4 +1,4 @@
-import {Post} from './Post/types';
+import {Post} from '@domain';
 
 export const postListMock: Post[] = [
   {

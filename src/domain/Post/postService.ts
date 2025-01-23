@@ -1,4 +1,5 @@
-import {Post} from './Post/types';
+import {Post} from '@domain';
+
 import {postApi} from './postApi';
 
 async function getList(): Promise<Post[]> {
