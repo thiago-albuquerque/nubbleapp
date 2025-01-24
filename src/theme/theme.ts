@@ -40,6 +40,8 @@ export const theme = createTheme({
 
     error: pallete.redError,
     errorLight: pallete.redErrorLight,
+
+    marked: pallete.carrotSecondary,
   },
   spacing: {
     s4: 4,
