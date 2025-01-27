@@ -9,7 +9,7 @@ type Props = Pick<Post, 'author' | 'text' | 'commentCount'>;
 export function PostBottom({author, text, commentCount}: Props) {
   return (
     <Box>
-      <Text preset="paragraphMedium" bold>
+      <Text preset="paragraphMedium" bold color="backgroundContrast">
         {author.userName}
       </Text>
       {text && (
