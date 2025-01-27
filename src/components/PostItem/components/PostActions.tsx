@@ -24,7 +24,7 @@ export function PostActions({
   }
 
   return (
-    <Box flexDirection="row" gap="s24">
+    <Box flexDirection="row" gap="s24" mb="s16">
       <Item
         onPress={likePost}
         icon={{default: 'heart', marked: 'heartFill'}}

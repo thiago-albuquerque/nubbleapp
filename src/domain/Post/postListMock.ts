@@ -55,7 +55,7 @@ export const postListMock: Post[] = [
   },
   {
     id: 'post_5',
-    text: 'Coding day!',
+    text: '',
     author: {
       profileURL: 'https://i.imgur.com/DF4Jfxq.jpg',
       name: 'Santiago Emilio',
@@ -115,7 +115,7 @@ export const postListMock: Post[] = [
       userName: 'amylee',
     },
     reactionCount: 35,
-    commentCount: 0,
+    commentCount: 1,
     favoriteCount: 0,
   },
 ];
